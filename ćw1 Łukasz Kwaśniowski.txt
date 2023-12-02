@@ -1,0 +1,22 @@
+
+I Zbiór danych:
+
+Imie i nazwisko - grupa: Inne niż biznesowe
+
+ID Pracownika - grupa: Wewnętrzne
+
+Dane biometryczne np. odcisk palca - grupa: Poufne
+
+Numer karty debetowej - grupa: Poufne
+
+-----------------------------------------------------
+
+II Zbiór danych:
+
+Imie i naziwsko - grupa: Inne niż biznesowe
+
+Nazwa stanowisko - grupa: Publiczne
+
+Zawód - grupa: Publiczne
+
+Historia choroby - grupa: Poufne
