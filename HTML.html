@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Logowania</title>
+    <style>
+
+        /* Stylizacja całej strony */
+        body 
+        {
+            font-family: Arial, sans-serif;
+            background-color: #5BE9FF;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+        }
+
+        /* Stylizacja formularzu logowania */
+        #login-form 
+        {
+            background-color: #0A8699;
+            padding: 19px;
+            border-radius: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ustawia elementy label jako bloki, co sprawia, że każdy label zaczyna się od nowej linii, co poprawia układ formularza */
+        label 
+        {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        /* Ta sekcja styluje wszystkie elementy <input> na stronie. */
+        input 
+        {
+            width: 90%;
+            padding: 9px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Ta sekcja styluje wszystkie elementy <button> na stronie. */
+        button 
+        {
+            background-color: #86CBD5;
+            color: #000000;
+            padding: 10px 15px;
+            border: 50; 
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Ta sekcja definiuje styl przycisku w momencie najechania na niego kursorem. */
+        button:hover {
+            background-color: #86CBD5;
+        }
+
+        /* Stylizujemy komunikat o błędzie */
+        #error-message {
+            color: red;
+            border: #000000;
+            margin-top: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="login-form">
+    <!--HTML-->
+    <!--TWORZENIE TEXTBOXU Z LOGINEM, (ID: LGN)-->
+    <label for="lgn">Login:</label>
+    <input type="text" id="lgn" name="lgn" placeholder="Wpisz swój login">
+
+    <!--TWORZENIE TEXTBOXU Z HASŁEM (ID: PSWD)-->
+    <label for="pswd">Hasło:</label>
+    <input type="password" id="pswd" name="pswd" placeholder="Wpisz swoje hasło">
+
+    <!--TWORZENIE PRZYCISUKU "ZALOGUJ", KTÓRY ZAWIERA W SOBIE SKRYPT DO WALIDACJI DANYCH
+        (HASŁO MUSI POSIADAĆ MNIEJ NIŻ 6 ZNAKÓW I WIĘCEJ NIŻ 15)-->
+    <button onclick="Walidacja()">Zaloguj</button>
+
+    <!--TWORZENIE BLOKU WYŚWIETLAJĄCEGO BŁĄD-->
+    <p id="blad"></p>
+
+</div>
+
+<script>
+    function Walidacja() 
+    {
+        
+        //STWORZENIE ZMIENNYCH LOGIN I HASŁO, KTÓRE BĘDĄ PRZECHOWYWAĆ WARTOŚCI Z FORMULARZA
+        var login = document.getElementById('lgn').value;
+        var haslo = document.getElementById('pswd').value;
+
+        //WALIDACJA DANYCH
+        //JEŻELI LOGIN I HASŁO SĄ PUSTE - WYŚWIETL ODPOWIEDNI KOMUNIKAT
+        if (login === '' || haslo === '')
+        {
+            document.getElementById('blad').innerText = 'Proszę uzupełnić wszystkie pola.';
+        } 
+        
+        //JEŻELI HASŁO MA MNIEJ NIŻ 6 ZNAKÓW - WYŚWIETL ODPOWIEDNI KOMUNIKAT
+        else if (haslo.length < 6) 
+
+        {
+            document.getElementById('blad').innerText = 'Hasło powinno mieć więcje niż 6 znaków!';
+        } 
+
+        //JEŻELI HASŁO MA WIĘCEJ NIŻ 15 ZNAKÓW - WYŚWIETL ODPOWIEDNI KOMUNIKAT
+        else if (haslo.length > 15)
+
+        {
+            document.getElementById('blad').innerText = "Hasło powinno być krótsze niż 15 znaków!"
+        }
+
+        else
+
+        //KIEDY WSZYSTKIE WARUNKI ZOSTANĄ SPEŁNIONE - WYŚWIETL ALERT O POMYŚLNYM ZALOGOWANIU
+        {
+            document.getElementById('blad').innerText = ''; 
+            alert('Zalogowano pomyślnie!');
+        }
+
+    }
+</script>
+
+</body>
+</html>
